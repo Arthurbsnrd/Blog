@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Set a light background color */
+            padding: 20px; /* Add some padding for better spacing */
+        }
+
+        h1 {
+            color: #007bff; /* Set a primary color for the heading */
+        }
+
+        .btn {
+            background-color: #28a745; /* Set a success color for buttons */
+            color: #fff; /* Set text color to white */
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1>Register</h1>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}
